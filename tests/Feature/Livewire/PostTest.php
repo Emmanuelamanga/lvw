@@ -5,7 +5,6 @@ namespace Tests\Feature\Livewire;
 use App\Livewire\Post;
 use App\Models\Post as ModelsPost;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Livewire\Livewire;
 use Tests\TestCase;
 
@@ -28,7 +27,7 @@ class PostTest extends TestCase
             ->set('title', 'Test Post')
             ->set('description', 'Test description for post')
             ->call('storePost');
-        
+
         $this->assertDatabaseHas('posts', [
             'title' => 'Test Post',
             'description' => 'Test description for post',
@@ -45,7 +44,7 @@ class PostTest extends TestCase
             ->set('title', 'Updated Title')
             ->set('description', 'Updated description')
             ->call('updatePost');
-        
+
         $this->assertDatabaseHas('posts', [
             'id' => $post->id,
             'title' => 'Updated Title',

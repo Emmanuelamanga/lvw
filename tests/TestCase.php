@@ -13,7 +13,7 @@ abstract class TestCase extends BaseTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        
+
         // Begin transaction before each test
         DB::beginTransaction();
     }
@@ -22,7 +22,7 @@ abstract class TestCase extends BaseTestCase
     {
         // Rollback any database changes made during the test
         DB::rollBack();
-        
+
         parent::tearDown();
     }
 }
